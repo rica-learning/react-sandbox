@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
+import { Book } from "../Pages/BookList";
 
 export default function AuthorDetail() {
   let { id } = useParams();
@@ -11,12 +12,14 @@ export default function AuthorDetail() {
       .then(setData);
   }, [id]);
 
+  let book = data as Book;
+
   return (
     <>
-      {data.title ? (
+      {book.title ? (
         <>
-          <h1> {data.title} </h1>
-          <h2> Author : {data.author} </h2>
+          <h1> {book.title} </h1>
+          <h2> Author : {book.author} </h2>
         </>
       ) : (
         <h1>Loading . . . </h1>
