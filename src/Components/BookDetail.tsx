@@ -5,7 +5,7 @@ import React from "react";
 
 export default function AuthorDetail() {
   let { id } = useParams();
-  const [data, setData] = useState({});
+  const [data, setData] = useState({ title: "", author: "", _id: "" });
 
   useEffect(() => {
     fetch(`https://1fe1m.sse.codesandbox.io/api/books/${id}`)
@@ -13,7 +13,7 @@ export default function AuthorDetail() {
       .then(setData);
   }, [id]);
 
-  let book = data as Book;
+  let book: Book = data;
 
   return (
     <>
