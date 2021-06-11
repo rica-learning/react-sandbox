@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { Book } from "../Pages/BookList";
+import React from "react";
 
 export default function AuthorDetail() {
   let { id } = useParams();
