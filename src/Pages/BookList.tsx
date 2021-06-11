@@ -11,7 +11,7 @@ import {
   Theme,
   Typography
 } from "@material-ui/core";
-import React, { useEffect, useState } from "react";
+import React from "react"; // { useEffect, useState }
 import { Link } from "react-router-dom";
 
 export interface Book {
@@ -41,24 +41,37 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function BookList() {
   const classes = useStyles();
-  const [data, setData] = useState<Book[]>([]);
-  const [error, setError] = useState(null);
-  const [loading, setLoading] = useState(false);
+  // const [data, setData] = useState<Book[]>([]);
+  // const [error, setError] = useState(null);
+  // const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    setLoading(true);
-    fetch("https://1fe1m.sse.codesandbox.io/api/books")
-      .then((res) => res.json())
-      .then(setData)
-      .then(() => setLoading(false))
-      .catch(setError);
-  }, []);
+  // useEffect(() => {
+  //   setLoading(true);
+  //   fetch("https://1fe1m.sse.codesandbox.io/api/books")
+  //     .then((res) => res.json())
+  //     .then(setData)
+  //     .then(() => setLoading(false))
+  //     .catch(setError);
+  // }, []);
 
-  if (loading) return <h1> Loading . . </h1>;
+  let data = [
+    {
+      _id: "a-and-d",
+      title: "Angels and Demon",
+      author: "Dan Brown"
+    },
+    {
+      _id: "sample-two",
+      title: "Sample Two",
+      author: "Rica Gito"
+    }
+  ];
 
-  if (error) {
-    return <pre>{JSON.stringify(error, null, 2)}</pre>;
-  }
+  // if (loading) return <h1> Loading . . </h1>;
+
+  // if (error) {
+  //   return <pre>{JSON.stringify(error, null, 2)}</pre>;
+  // }
 
   return (
     <Box m={2} className={classes.root}>
